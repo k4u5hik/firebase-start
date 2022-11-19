@@ -24,13 +24,13 @@ const firestore = getFirestore();
 
 const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-18');
 
-function writeDailySpecial() {
+async function writeDailySpecial() {
   const docData = {
     name: 'Bun of the Week',
     price: 19.99,
     description: 'Come and get it, this week only!'
   };
-  setDoc(specialOfTheDay, docData, { merge: true }); // merge: true will not overwrite existing data in the document if it exists already
+  await setDoc(specialOfTheDay, docData, { merge: true }); // merge: true will not overwrite existing data in the document if it exists already
 }
 
 writeDailySpecial();
