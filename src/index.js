@@ -22,13 +22,13 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestore = getFirestore();
 
-const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-18');
+const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-17');
 
 async function writeDailySpecial() {
   const docData = {
-    name: 'Bun of the Week',
-    price: 19.99,
-    description: 'Come and get it, this week only!'
+    name: 'Bun of the Month',
+    price: 199.99,
+    description: 'Come and get it, this month only!'
   };
   await setDoc(specialOfTheDay, docData, { merge: true }) // merge: true will not overwrite existing data in the document if it exists already
   .then(() => {
@@ -36,7 +36,7 @@ async function writeDailySpecial() {
   }
   )
   .catch((error) => {
-    console.error('Error writing document: ', error);
+    console.error('Error writing document: ${error}');
   })
 }
 
