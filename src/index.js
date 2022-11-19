@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,15 +22,15 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestore = getFirestore();
 
-const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-19');
+const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-18');
 
 function writeDailySpecial() {
   const docData = {
-    name: 'Bun of the Day',
-    price: 9.99,
-    description: 'Come and get it, today only!'
+    name: 'Bun of the Week',
+    price: 19.99,
+    description: 'Come and get it, this week only!'
   };
-  setDoc(specialOfTheDay, docData)
+  setDoc(specialOfTheDay, docData, { merge: true }); // merge: true will not overwrite existing data in the document if it exists already
 }
 
 writeDailySpecial();
