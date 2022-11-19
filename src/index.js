@@ -30,7 +30,14 @@ async function writeDailySpecial() {
     price: 19.99,
     description: 'Come and get it, this week only!'
   };
-  await setDoc(specialOfTheDay, docData, { merge: true }); // merge: true will not overwrite existing data in the document if it exists already
+  await setDoc(specialOfTheDay, docData, { merge: true }) // merge: true will not overwrite existing data in the document if it exists already
+  .then(() => {
+    console.log('Document successfully written!');
+  }
+  )
+  .catch((error) => {
+    console.error('Error writing document: ', error);
+  })
 }
 
 writeDailySpecial();
