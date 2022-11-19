@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
+import { getAnalytics } from "firebase/analytics";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -16,8 +17,22 @@ const firebaseConfig = {
   measurementId: "G-RT75DTD277"
 };
 
-console.log ('Hello from Firebase');
-
 // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const firestore = getFirestore();
+
+const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-19');
+
+function writeDailySpecial() {
+  const docData = {
+    name: 'Bun of the Day',
+    price: 9.99,
+    description: 'Come and get it, today only!'
+  };
+  setDoc(specialOfTheDay, docData)
+}
+
+writeDailySpecial();
+
+console.log ('Hello from Firebase');
