@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "serve": "^14.1.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "dependencies": {
+    "firebase": "^9.14.0"
+  },
+  "name": "vcb",
+  "description": "Experimenting with Firebase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k4u5hik/firebase-start.git"
+  },
+  "keywords": [
+    "firebase",
+    "database",
+    "nosql"
+  ],
+  "author": "Kaushik Chemburkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k4u5hik/firebase-start/issues"
+  },
+  "homepage": "https://github.com/k4u5hik/firebase-start#readme"
+}
