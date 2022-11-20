@@ -22,13 +22,13 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestore = getFirestore();
 
-const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-17');
+const specialOfTheDay = doc(firestore, 'dailySpecial/2022-11-16');
 
 async function writeDailySpecial() {
   const docData = {
     name: 'Bun of the Month',
-    price: 199.99,
-    description: 'Come and get it, this month only!'
+    price: 129.99,
+    description: 'Come and get it, this time only!'
   };
   await setDoc(specialOfTheDay, docData, { merge: true }) // merge: true will not overwrite existing data in the document if it exists already
   .then(() => {
